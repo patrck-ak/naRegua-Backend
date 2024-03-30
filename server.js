@@ -76,7 +76,7 @@ const dbPass = process.env.DB_PASS;
 //? Conexão a DB (dados no .env)
 mongoose
   .connect(
-    `mongodb+srv://${dbUser}:${dbPass}@cluster0.w2im0t0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+    `mongodb+srv://${dbUser}:${dbPass}@cluster0.utqhhac.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
   )
   .then(
     app.listen(port, () => {
@@ -84,5 +84,5 @@ mongoose
     })
   )
   .catch((err) => {
-    console.log(err);
+    throw new Error(err);
   });
