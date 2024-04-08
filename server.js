@@ -4,6 +4,8 @@ const msg = require("./msg.js");
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const Users = require("./db/Users.js");
+const Barbers = require("./db/Barbers.js");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -78,11 +80,5 @@ mongoose
   .connect(
     `mongodb+srv://${dbUser}:${dbPass}@cluster0.utqhhac.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
   )
-  .then(
-    app.listen(port, () => {
-      console.log("rodando...");
-    })
-  )
-  .catch((err) => {
-    throw new Error(err);
-  });
+  .then(app.listen(port, () => console.log("rodando...")))
+  .catch((err) => console.log(err));
